@@ -1,16 +1,18 @@
 <?php
 
+include __DIR__ . '/includes/functions.php';
+
 $psw = '';
 
 if (isset($_GET["number"])) {
 
-    session_start();
-    
-    $SESSION['number'];
-    
-    header('Location: password_result.php')
+    $psw = random_password($_GET["number"]);
 
-};
+    session_start();
+
+    $_SESSION['psw'];
+}
+
 
 ?>
 

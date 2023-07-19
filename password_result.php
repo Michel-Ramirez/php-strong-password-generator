@@ -1,12 +1,8 @@
 <?php
 
-
-include __DIR__ . '/includes/functions.php';
-
 session_start();
 
-$char_number = $SESSION['number'];
-$psw = random_password($char_number);
+$_SESSION['psw'] = $psw;
 
 
 ?>
