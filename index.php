@@ -4,10 +4,11 @@ include __DIR__ . '/includes/functions.php';
 
 $page_title = 'Password generator';
 
+$number = $_GET["number"] ?? '';
 
-if (isset($_GET["number"])) {
+if ($number) {
 
-    $psw = random_password($_GET["number"]);
+    $psw = random_password($number);
 
     session_start();
 
