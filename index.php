@@ -6,6 +6,8 @@ $page_title = 'Password generator';
 
 $number = $_GET["number"] ?? '';
 
+$error_message = '';
+
 if ($number) {
 
     $psw = random_password($number);
@@ -15,10 +17,7 @@ if ($number) {
     $_SESSION['psw'] = $psw;
 
     header('Location: password_result.php');
-} else {
-    $error_message = 'Devi indicare la lunghezza';
 }
-
 
 ?>
 
@@ -39,9 +38,6 @@ if ($number) {
                         <label for="number-char" class="label-input-number">Lunghezza password</label>
                         <input type=" number" class="input-number" id="number-char" name="number" min="4">
                     </div>
-                    <!-- <?php if ($error_message) : ?>
-                        <span class="alert alert-danger"> <?php $error_message ?> </span>
-                    <?php endif; ?> -->
                     <div class="wrapper-btn">
                         <button type="submit" class="btn btn-primary me-2">Invia</button>
                         <button type="reset" class="btn btn-secondary">Annulla</button>

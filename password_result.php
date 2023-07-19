@@ -12,6 +12,7 @@ $psw = $_SESSION['psw'];
 <!DOCTYPE html>
 <html lang="en">
 
+<!-- HEAD -->
 <?php include __DIR__ . '/includes/layouts/haed.php' ?>
 
 <body>
