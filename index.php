@@ -2,7 +2,8 @@
 
 include __DIR__ . '/includes/functions.php';
 
-$psw = '';
+$page_title = 'Password generator';
+
 
 if (isset($_GET["number"])) {
 
@@ -10,7 +11,11 @@ if (isset($_GET["number"])) {
 
     session_start();
 
-    $_SESSION['psw'];
+    $_SESSION['psw'] = $psw;
+
+    header('Location: password_result.php');
+} else {
+    $error_message = 'Devi indicare la lunghezza';
 }
 
 
@@ -19,13 +24,8 @@ if (isset($_GET["number"])) {
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
-    <title>Password Generator</title>
-</head>
+<!-- HEAD -->
+<?php include __DIR__ . '/includes/layouts/haed.php' ?>
 
 <body>
     <main>
@@ -38,6 +38,9 @@ if (isset($_GET["number"])) {
                         <label for="number-char" class="label-input-number">Lunghezza password</label>
                         <input type=" number" class="input-number" id="number-char" name="number" min="4">
                     </div>
+                    <!-- <?php if ($error_message) : ?>
+                        <span class="alert alert-danger"> <?php $error_message ?> </span>
+                    <?php endif; ?> -->
                     <div class="wrapper-btn">
                         <button type="submit" class="btn btn-primary me-2">Invia</button>
                         <button type="reset" class="btn btn-secondary">Annulla</button>

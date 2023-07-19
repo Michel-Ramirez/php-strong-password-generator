@@ -1,9 +1,10 @@
 <?php
 
+$page_titol = 'La tua password';
+
 session_start();
 
-$_SESSION['psw'] = $psw;
-
+$psw = $_SESSION['psw'];
 
 ?>
 
@@ -11,20 +12,24 @@ $_SESSION['psw'] = $psw;
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+<?php include __DIR__ . '/includes/layouts/haed.php' ?>
 
 <body>
-
-    <?php if ($psw) : ?>
-        <div class="alert alert-info" role="alert">
-            <div>La tua password è : <span class="psw-text"> <?= $psw ?> </span> </div>
+    <main>
+        <div class="container">
+            <?php if ($psw) : ?>
+                <div class="alert alert-info" role="alert">
+                    <div class="d-flex flex-column align-items-center my-5">
+                        <h1 class="text-dark mb-5">La tua password</h1>
+                        <span class="psw-text"> <?= $psw ?> </span>
+                    </div>
+                    <div class="text-end">
+                        <a href="index.php">Indietro</a>
+                    </div>
+                </div>
+            <?php endif ?>
         </div>
-    <?php endif ?>
-
+    </main>
 </body>
 
 </html>
