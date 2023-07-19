@@ -20,9 +20,12 @@ h4 {
     margin-bottom: 20px;
 }
 
+.alert {
+    margin: 50px 0;
+}
+
 .form-container {
     height: 400px;
-    margin-top: 100px;
     background-color: lightgrey;
     border-radius: 20px;
 }
@@ -44,4 +47,19 @@ form {
 .wrapper-btn {
     display: flex;
     justify-content: end;
+}
+
+.input-number:focus-visible {
+    padding-left: 2px;
+}
+
+.label-input-number {
+    font-weight: 600;
+}
+
+.psw-text {
+    margin-left: 20px;
+    padding: 5px 30px;
+    background-color: white;
+    border-radius: 10px;
 }

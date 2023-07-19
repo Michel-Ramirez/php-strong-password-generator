@@ -1,15 +1,16 @@
 <?php
 
-$char_number = $_GET["number"];
+$psw = '';
 
-function random_password($char_number)
-{
-    $chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_-=+;:,.?";
-    $password = substr(str_shuffle($chars), 0, $char_number);
-    return $password;
-}
+if (isset($_GET["number"])) {
 
-$psw = random_password($char_number);
+    session_start();
+    
+    $SESSION['number'];
+    
+    header('Location: password_result.php')
+
+};
 
 ?>
 
@@ -29,16 +30,11 @@ $psw = random_password($char_number);
         <div class="container">
             <h1>Strong Password Generator</h1>
             <h4>Genera una password sicura</h4>
-
-            <p><strong>
-                    <?= $psw ?>
-                </strong> </p>
-
             <div class="form-container">
-                <form action="#">
+                <form>
                     <div class="wrapper-input">
                         <label for="number-char" class="label-input-number">Lunghezza password</label>
-                        <input type=" number" class="input-number" id="number-char" name="number">
+                        <input type=" number" class="input-number" id="number-char" name="number" min="4">
                     </div>
                     <div class="wrapper-btn">
                         <button type="submit" class="btn btn-primary me-2">Invia</button>
